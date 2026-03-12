@@ -1,0 +1,108 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function OurServices() {
+  const navigate = useNavigate();
+
+  // Smooth navigation function for React Router links
+  const smoothNavigate = (path) => {
+    // First scroll to top smoothly
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+
+    // Then navigate after scrolling
+    setTimeout(() => {
+      navigate(path);
+    }, 500);
+  };
+
+  return (
+    <section className="py-16 bg-gray-100 w-full mt-10">
+      {/* Section Title */}
+      <div className="text-center">
+        <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+          We provide top-notch services for your beloved pets. From adoption to
+          healthcare, everything you need is right here.
+        </p>
+      </div>
+
+      {/* Grid Section */}
+      <div className="w-full px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* Card 1: Pet Adoption */}
+          <button onClick={() => smoothNavigate('/petadoption')} className="block">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition duration-300 p-8 text-center h-full flex flex-col">
+              <div className="flex items-center justify-center h-40 w-40 rounded-full bg-blue-100 mx-auto mb-6 overflow-hidden">
+                <img
+                  src="/petadoption.png"
+                  alt="Adoption"
+                  className="transform scale-150"
+                />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Pet Adoption</h3>
+              <p className="text-gray-600">
+                Find your perfect furry companion from a wide variety of adorable pets.
+              </p>
+            </div>
+          </button>
+
+          {/* Card 2: Veterinary Services */}
+          <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition duration-300 p-8 text-center h-full flex flex-col">
+            <div className="flex items-center justify-center h-40 w-40 rounded-full bg-green-100 mx-auto mb-6 overflow-hidden">
+              <img
+                src="/vet.png"
+                alt="Healthcare"
+                className="transform scale-150"
+              />
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Veterinary Services</h3>
+            <p className="text-gray-600">
+              Professional veterinary care to keep your pets healthy and happy.
+            </p>
+          </div>
+
+          {/* Card 3: Pet Store */}
+          <button onClick={() => smoothNavigate('/petstore')} className="block">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition duration-300 p-8 text-center h-full flex flex-col">
+              <div className="flex items-center justify-center h-40 w-40 rounded-full bg-orange-100 mx-auto mb-6 overflow-hidden">
+                <img
+                  src="/petstore.png"
+                  alt="Pet Store"
+                  className="transform scale-150"
+                />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Pet Store</h3>
+              <p className="text-gray-600">
+                All the essentials and toys your pets love — under one roof.
+              </p>
+            </div>
+          </button>
+
+          {/* Card 4: SmartCare AI */}
+          <button onClick={() => smoothNavigate('/smartcare-ai')} className="block">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transform transition duration-300 p-8 text-center h-full flex flex-col">
+              <div className="flex items-center justify-center h-40 w-40 rounded-full bg-purple-100 mx-auto mb-6 overflow-hidden">
+                <img
+                  src="/ai.png"
+                  alt="SmartCare AI"
+                  className="transform scale-150"
+                />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">SmartCare AI</h3>
+              <p className="text-gray-600">
+                AI-powered advice to help you track and manage your pet’s health.
+              </p>
+            </div>
+          </button>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default OurServices;
